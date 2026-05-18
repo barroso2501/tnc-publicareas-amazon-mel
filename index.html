@@ -14,12 +14,10 @@ body{font-family:system-ui,sans-serif;background:#f5f5f0;color:#111;height:100vh
 .tabs{background:#fff;border-bottom:1px solid rgba(0,0,0,.08);display:flex;padding:0 16px;flex-shrink:0;overflow-x:auto}
 .tab{padding:10px 14px;font-size:13px;cursor:pointer;background:none;border:none;border-bottom:2px solid transparent;color:#666;font-family:inherit;white-space:nowrap;transition:color .15s}
 .tab:hover{color:#1B4332}.tab.on{color:#1B4332;border-bottom-color:#1B4332;font-weight:500}
-/* panels */
 .pnl{display:none;flex:1;overflow:hidden;min-height:0}.pnl.on{display:flex}
 .row{display:flex;gap:12px;padding:12px 14px;flex:1;overflow:hidden;min-height:0}
 .map-wrap{flex:1;min-width:260px;border-radius:8px;overflow:hidden;border:1px solid rgba(0,0,0,.08);position:relative}
-.side{width:270px;min-width:230px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding-right:2px}
-/* cards */
+.side{width:278px;min-width:230px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding-right:2px}
 .card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;padding:11px 13px;flex-shrink:0}
 .card h3{font-size:10px;font-weight:500;color:#666;text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px}
 .stat2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -29,9 +27,20 @@ body{font-family:system-ui,sans-serif;background:#f5f5f0;color:#111;height:100vh
 .bnum .l{font-size:10px;color:#666;margin-top:3px;text-transform:uppercase;letter-spacing:.3px}
 .leg-item{display:flex;align-items:flex-start;gap:7px;font-size:11px;margin-bottom:5px;color:#555;line-height:1.3}
 .leg-sq{width:10px;height:10px;border-radius:2px;flex-shrink:0;margin-top:1px}
+/* município search */
+.mun-input{width:100%;padding:6px 9px;border:1px solid rgba(0,0,0,.15);border-radius:5px;font-size:12px;font-family:inherit;outline:none;transition:border .15s}
+.mun-input:focus{border-color:#3B6D11}
+.mun-drop{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:5px;z-index:600;max-height:180px;overflow-y:auto;box-shadow:0 4px 12px rgba(0,0,0,.1);margin-top:2px;display:none}
+.mun-item{padding:6px 10px;font-size:11px;cursor:pointer;border-bottom:1px solid rgba(0,0,0,.05);transition:background .1s}
+.mun-item:hover{background:#EAF3DE}
+.mun-item:last-child{border-bottom:none}
+.mun-info{background:#EAF3DE;border-radius:5px;padding:8px 10px;margin-top:6px;display:none}
+.mun-info .mi-name{font-size:12px;font-weight:500;color:#1B4332;margin-bottom:5px}
+.mun-info .mi-row{font-size:11px;color:#3B6D11;display:flex;justify-content:space-between;margin-bottom:2px}
+.mun-info .mi-clear{font-size:10px;color:#888;cursor:pointer;float:right;margin-top:2px}
+.mun-info .mi-clear:hover{color:#C0392B}
 /* zoom hint */
 .zoom-hint{position:absolute;bottom:10px;left:10px;z-index:500;background:rgba(255,255,255,.92);border-radius:6px;padding:6px 10px;font-size:11px;color:#555;border:1px solid rgba(0,0,0,.1);pointer-events:none;transition:opacity .3s}
-/* full-width panels */
 .full-pnl{display:none;flex-direction:column;flex:1;overflow-y:auto;padding:12px 14px;gap:12px;min-height:0}
 .full-pnl.on{display:flex}
 .chart-wrap{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;padding:12px 14px;flex-shrink:0}
@@ -42,7 +51,6 @@ body{font-family:system-ui,sans-serif;background:#f5f5f0;color:#111;height:100vh
 .tcard h4{font-size:10px;font-weight:500;color:#666;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px}
 .pbar{height:5px;background:rgba(0,0,0,.08);border-radius:3px;overflow:hidden;margin:4px 0}
 .pbar-fill{height:100%;border-radius:3px}
-/* assumptions */
 .acard{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;padding:11px 13px;display:flex;gap:10px;flex-shrink:0}
 .aicon{width:30px;height:30px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-top:1px}
 .aicon.s{background:#dcfce7;color:#166534}.aicon.i{background:#fef3c7;color:#92400e}.aicon.c{background:#fee2e2;color:#991b1b}
@@ -55,7 +63,6 @@ body{font-family:system-ui,sans-serif;background:#f5f5f0;color:#111;height:100vh
 .info-strip{background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:8px 12px;font-size:11px;color:#166534;flex-shrink:0}
 .warn-strip{background:#fff8f0;border:1px solid #f59e0b;border-radius:8px;padding:8px 12px;font-size:11px;color:#92400e;flex-shrink:0}
 .src{font-size:10px;color:#aaa;padding:2px 14px 6px;flex-shrink:0}
-/* matrix grid */
 .mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:4px}
 .mat-cell{border-radius:6px;padding:8px;text-align:center}
 .mat-cell .mc-title{font-size:10px;font-weight:600;text-transform:uppercase}
@@ -64,15 +71,10 @@ body{font-family:system-ui,sans-serif;background:#f5f5f0;color:#111;height:100vh
 </style>
 </head>
 <body>
-
 <div class="dh">
-  <div>
-    <small>The Nature Conservancy · Brasil</small>
-    <h1>Public Areas — Conservation Intelligence Dashboard</h1>
-  </div>
-  <div class="dh-badge">Pará · MVP v2.1 · Mai 2026</div>
+  <div><small>The Nature Conservancy · Brasil</small><h1>Public Areas — Conservation Intelligence Dashboard</h1></div>
+  <div class="dh-badge">Pará · MVP v2.2 · Mai 2026</div>
 </div>
-
 <div class="tabs">
   <button class="tab on" data-p="ctx" onclick="sw('ctx')">Contexto territorial</button>
   <button class="tab"    data-p="pri" onclick="sw('pri')">Prioridade espacial</button>
@@ -80,48 +82,62 @@ body{font-family:system-ui,sans-serif;background:#f5f5f0;color:#111;height:100vh
   <button class="tab"    data-p="asm" onclick="sw('asm')">Premissas da TOC</button>
 </div>
 
-<!-- ═══ TAB 1 ═══ -->
+<!-- TAB 1 -->
 <div id="pnl-ctx" class="pnl on">
   <div class="row">
     <div class="map-wrap" id="map-ctx">
-      <div class="zoom-hint" id="hint-ctx">
-        🔍 Aproxime para ver imóveis CAR e Reservas Legais
-      </div>
+      <div class="zoom-hint" id="hint-ctx">🔍 Aproxime para ver imóveis CAR e Reservas Legais</div>
     </div>
     <div class="side">
       <div class="card stat2">
         <div class="bnum"><div class="n">33,9</div><div class="u">Mi ha</div><div class="l">não destinadas</div></div>
-        <div class="bnum"><div class="n">80%</div><div class="u">veg. nativa</div><div class="l">nas ANDs</div></div>
+        <div class="bnum"><div class="n">144</div><div class="u">municípios</div><div class="l">no Pará</div></div>
       </div>
+
+      <!-- CONSULTA POR MUNICÍPIO -->
+      <div class="card">
+        <h3>Consultar município</h3>
+        <div style="position:relative">
+          <input type="text" id="mun-input" class="mun-input" placeholder="Digite o nome do município…" autocomplete="off">
+          <div id="mun-drop" class="mun-drop"></div>
+        </div>
+        <div id="mun-info" class="mun-info">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div class="mi-name" id="mi-name">—</div>
+            <span class="mi-clear" onclick="clearMun()">✕ limpar</span>
+          </div>
+          <div class="mi-row"><span>Área do município</span><span id="mi-area">—</span></div>
+          <div class="mi-row"><span>Alertas 2017–2024</span><span id="mi-n">—</span></div>
+          <div class="mi-row"><span>Área desmatada</span><span id="mi-defor">—</span></div>
+        </div>
+      </div>
+
+      <!-- CAMADAS -->
       <div class="card">
         <h3>Camadas</h3>
         <div class="leg-item"><div class="leg-sq" style="background:#E07B39;opacity:.6"></div><span>Áreas não-destinadas (AND)</span></div>
+        <div class="leg-item"><div class="leg-sq" style="background:#555;opacity:.4;border:none"></div><span>Municípios do Pará</span></div>
         <div class="leg-item"><div class="leg-sq" style="background:#006400;opacity:.7"></div><span>Cobertura MapBiomas 2024</span></div>
         <div class="leg-item"><div class="leg-sq" style="background:transparent;border:1.5px solid #F9A825;height:9px"></div><span>Imóveis CAR médios/grandes <em style="color:#888">(zoom ≥ 10)</em></span></div>
-        <div class="leg-item"><div class="leg-sq" style="background:#2E7D32;opacity:.45"></div><span>Reservas Legais declaradas <em style="color:#888">(zoom ≥ 10)</em></span></div>
-        <div class="leg-item"><div class="leg-sq" style="background:linear-gradient(to right,#ffeda0,#bd0026)"></div><span>Alertas desmatamento (heatmap)</span></div>
-        <div style="font-size:10px;color:#888;margin-top:5px;padding-top:5px;border-top:1px solid rgba(0,0,0,.06)">
-          Use o controle ⊞ para ativar / desativar camadas
-        </div>
+        <div class="leg-item"><div class="leg-sq" style="background:#2E7D32;opacity:.45"></div><span>Reservas Legais <em style="color:#888">(zoom ≥ 10)</em></span></div>
+        <div class="leg-item"><div class="leg-sq" style="background:linear-gradient(to right,#ffffb2,#bd0026)"></div><span>Alertas — heatmap (intensidade log)</span></div>
+        <div style="font-size:10px;color:#888;margin-top:5px;padding-top:5px;border-top:1px solid rgba(0,0,0,.06)">Use ⊞ para ativar / desativar camadas</div>
       </div>
+
       <div class="card">
         <h3>Alertas MapBiomas nas ANDs (2017–2024)</h3>
         <div id="alerta-stats" style="font-size:12px;color:#555">Carregando…</div>
       </div>
       <div class="card">
         <h3>Cobertura do solo — ANDs (MapBiomas 2024)</h3>
-        <div style="position:relative;height:160px">
-          <canvas id="ch-mapbiomas" role="img"
-            aria-label="Gráfico de cobertura do solo MapBiomas nas áreas não-destinadas do Pará">
-          </canvas>
-        </div>
+        <div style="position:relative;height:155px"><canvas id="ch-mapbiomas"></canvas></div>
       </div>
     </div>
   </div>
-  <div class="src">MapBiomas Col. 10.1 (2024) · SIGEF/INCRA · MapBiomas Alerta · CAR/MMA · Aragão (2020)</div>
+  <div class="src">MapBiomas Col. 10.1 · SIGEF/INCRA · MapBiomas Alerta · CAR/MMA · IBGE 2022 · Aragão (2020)</div>
 </div>
 
-<!-- ═══ TAB 2 ═══ -->
+<!-- TAB 2 -->
 <div id="pnl-pri" class="pnl">
   <div class="row">
     <div class="map-wrap" id="map-pri">
@@ -131,22 +147,10 @@ body{font-family:system-ui,sans-serif;background:#f5f5f0;color:#111;height:100vh
       <div class="card">
         <h3>Matriz de priorização</h3>
         <div class="mat-grid">
-          <div class="mat-cell" style="background:#fee2e2">
-            <div class="mc-title" style="color:#991b1b">Crítico</div>
-            <div class="mc-desc" style="color:#7f1d1d">Alto risco BAU<br>× Q4 resiliência</div>
-          </div>
-          <div class="mat-cell" style="background:#fef3c7">
-            <div class="mc-title" style="color:#92400e">Uso sustentável</div>
-            <div class="mc-desc" style="color:#78350f">Alto risco BAU<br>× Q1 resiliência</div>
-          </div>
-          <div class="mat-cell" style="background:#dcfce7">
-            <div class="mc-title" style="color:#166534">Consolidação</div>
-            <div class="mc-desc" style="color:#14532d">Baixo risco BAU<br>× Q4 resiliência</div>
-          </div>
-          <div class="mat-cell" style="background:#f3f4f6">
-            <div class="mc-title" style="color:#374151">Monitoramento</div>
-            <div class="mc-desc" style="color:#4b5563">Baixo risco BAU<br>× Q1 resiliência</div>
-          </div>
+          <div class="mat-cell" style="background:#fee2e2"><div class="mc-title" style="color:#991b1b">Crítico</div><div class="mc-desc" style="color:#7f1d1d">Alto risco BAU × Q4 resiliência</div></div>
+          <div class="mat-cell" style="background:#fef3c7"><div class="mc-title" style="color:#92400e">Uso sustentável</div><div class="mc-desc" style="color:#78350f">Alto risco BAU × Q1 resiliência</div></div>
+          <div class="mat-cell" style="background:#dcfce7"><div class="mc-title" style="color:#166534">Consolidação</div><div class="mc-desc" style="color:#14532d">Baixo risco BAU × Q4 resiliência</div></div>
+          <div class="mat-cell" style="background:#f3f4f6"><div class="mc-title" style="color:#374151">Monitoramento</div><div class="mc-desc" style="color:#4b5563">Baixo risco BAU × Q1 resiliência</div></div>
         </div>
       </div>
       <div class="card">
@@ -154,542 +158,484 @@ body{font-family:system-ui,sans-serif;background:#f5f5f0;color:#111;height:100vh
         <div class="leg-item"><div class="leg-sq" style="background:#40916C;opacity:.5"></div><span>Q4 — Alta resiliência (Rosenfield 2025)</span></div>
         <div class="leg-item"><div class="leg-sq" style="background:#AAAAAA;opacity:.5"></div><span>Q1 — Baixa resiliência</span></div>
         <div class="leg-item"><div class="leg-sq" style="background:#A32D2D;opacity:.5"></div><span>Probabilidade BAU 2030</span></div>
-        <div class="leg-item"><div class="leg-sq" style="background:linear-gradient(to right,#ffffcc,#bd0026)"></div><span>Alertas — densidade hexgrid (25 km)</span></div>
-        <div style="font-size:10px;color:#888;margin-top:5px;padding-top:5px;border-top:1px solid rgba(0,0,0,.06)">
-          Use o controle ⊞ para ativar / desativar camadas
-        </div>
+        <div class="leg-item"><div class="leg-sq" style="background:linear-gradient(to right,#ffffcc,#bd0026)"></div><span>Alertas — hexgrid densidade (25 km)</span></div>
+        <div style="font-size:10px;color:#888;margin-top:5px;padding-top:5px;border-top:1px solid rgba(0,0,0,.06)">Use ⊞ para ativar / desativar camadas</div>
       </div>
       <div class="card">
         <h3>Probabilidade BAU 2030 — classes</h3>
         <div id="prob-legend"></div>
-        <div style="font-size:10px;color:#888;margin-top:6px">
-          Quebras em P25/P50/P75 (N=29,6 Mi pixels). Fonte: Dinamica EGO × prob_AND_maxima.tif
-        </div>
+        <div style="font-size:10px;color:#888;margin-top:6px">Quebras em P25/P50/P75. Fonte: Dinamica EGO × prob_AND_maxima.tif</div>
       </div>
       <div class="card" style="background:#fff8f0;border-color:#f59e0b">
         <h3 style="color:#b45309">Metodologia</h3>
-        <div style="font-size:11px;color:#555;line-height:1.5">
-          Cruzamento de risco de desmatamento (Dinamica EGO BAU 2030) com resiliência climática
-          (heterogeneidade + conectividade local — Rosenfield et al. 2025,
-          <em>Global Change Biology</em>).
-        </div>
+        <div style="font-size:11px;color:#555;line-height:1.5">Cruzamento de risco BAU (Dinamica EGO 2030) com resiliência climática (Rosenfield et al. 2025, <em>Global Change Biology</em>).</div>
       </div>
     </div>
   </div>
-  <div class="src">Dinamica EGO BAU 2030 (TNC interno) · Rosenfield et al. 2025 (Zenodo 10.5281/zenodo.13320277)</div>
+  <div class="src">Dinamica EGO BAU 2030 (TNC) · Rosenfield et al. 2025 (Zenodo 10.5281/zenodo.13320277)</div>
 </div>
 
-<!-- ═══ TAB 3 ═══ -->
+<!-- TAB 3 -->
 <div id="pnl-mon" class="full-pnl">
   <div class="chart-wrap">
     <h3>Desmatamento observado vs. cenário BAU · Pará — áreas não-destinadas</h3>
-    <p>Linha tracejada = projeção BAU (Dinamica EGO). Linha vermelha = PRODES/MapBiomas observado. Linha verde = trajetória alvo TNC.</p>
-    <div style="position:relative;height:250px">
-      <canvas id="ch-ts" role="img" aria-label="Série temporal de desmatamento 2015-2030"></canvas>
-    </div>
+    <p>Tracejado = projeção BAU (Dinamica EGO). Vermelho = PRODES/MapBiomas observado. Verde = trajetória alvo TNC.</p>
+    <div style="position:relative;height:250px"><canvas id="ch-ts"></canvas></div>
   </div>
   <div class="chart-wrap">
     <h3>Alertas de desmatamento nas ANDs — área detectada por ano (ha)</h3>
     <p>Fonte: MapBiomas Alerta. Alertas ≥ 1 ha, 2017–2024. Vermelho escuro = últimos 3 anos.</p>
-    <div style="position:relative;height:150px">
-      <canvas id="ch-alertas" role="img" aria-label="Área desmatada por ano nos alertas MapBiomas"></canvas>
-    </div>
+    <div style="position:relative;height:150px"><canvas id="ch-alertas"></canvas></div>
   </div>
   <div>
-    <div style="font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:#666;margin-bottom:8px">
-      Metas 2030 · Estratégia de Áreas Públicas na Amazônia
-    </div>
+    <div style="font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:#666;margin-bottom:8px">Metas 2030 · Estratégia de Áreas Públicas</div>
     <div class="tgrid">
-      <div class="tcard">
-        <h4>Desmatamento evitado</h4>
-        <div style="font-size:19px;font-weight:500;color:#C0392B">0 ha</div>
-        <div style="font-size:10px;color:#666;margin-top:1px">meta: 160.000 ha</div>
-        <div class="pbar"><div class="pbar-fill" style="width:0%;background:#C0392B"></div></div>
-        <div style="font-size:10px;color:#888;margin-top:3px">Baseline: MapBiomas 2024 · Contrafactual: Dinamica BAU</div>
-      </div>
-      <div class="tcard">
-        <h4>Áreas protegidas</h4>
-        <div style="font-size:19px;font-weight:500;color:#2E7D32">0 ha</div>
-        <div style="font-size:10px;color:#666;margin-top:1px">meta: 2,4 Mi ha</div>
-        <div class="pbar"><div class="pbar-fill" style="width:0%;background:#2E7D32"></div></div>
-        <div style="font-size:10px;color:#888;margin-top:3px">UCs, TIs reconhecidas, florestas públicas</div>
-      </div>
-      <div class="tcard">
-        <h4>Restauração</h4>
-        <div style="font-size:19px;font-weight:500;color:#E07B39">0 ha</div>
-        <div style="font-size:10px;color:#666;margin-top:1px">meta: 320.000 ha</div>
-        <div class="pbar"><div class="pbar-fill" style="width:0%;background:#E07B39"></div></div>
-        <div style="font-size:10px;color:#888;margin-top:3px">Ativa + passiva · prioridade zonas Q2 Rosenfield</div>
-      </div>
+      <div class="tcard"><h4>Desmatamento evitado</h4><div style="font-size:19px;font-weight:500;color:#C0392B">0 ha</div><div style="font-size:10px;color:#666;margin-top:1px">meta: 160.000 ha</div><div class="pbar"><div class="pbar-fill" style="width:0%;background:#C0392B"></div></div><div style="font-size:10px;color:#888;margin-top:3px">Baseline: MapBiomas 2024 · Contrafactual: Dinamica BAU</div></div>
+      <div class="tcard"><h4>Áreas protegidas</h4><div style="font-size:19px;font-weight:500;color:#2E7D32">0 ha</div><div style="font-size:10px;color:#666;margin-top:1px">meta: 2,4 Mi ha</div><div class="pbar"><div class="pbar-fill" style="width:0%;background:#2E7D32"></div></div><div style="font-size:10px;color:#888;margin-top:3px">UCs, TIs reconhecidas, florestas públicas</div></div>
+      <div class="tcard"><h4>Restauração</h4><div style="font-size:19px;font-weight:500;color:#E07B39">0 ha</div><div style="font-size:10px;color:#666;margin-top:1px">meta: 320.000 ha</div><div class="pbar"><div class="pbar-fill" style="width:0%;background:#E07B39"></div></div><div style="font-size:10px;color:#888;margin-top:3px">Ativa + passiva · prioridade zonas Q2 Rosenfield</div></div>
     </div>
   </div>
-  <div class="warn-strip">
-    Targets FY26–27 = fase de baseline e governança. Reporte de progresso inicia FY28 com DQT score mínimo 2.
-    Score 3 exige peer review confirmado (Measures Advisory Group ou parceiro acadêmico).
-  </div>
-  <div class="src">PRODES/INPE (2015–2024) · MapBiomas Col. 10.1 · Dinamica EGO BAU 2030 · TNC Hub 2030 Goals</div>
+  <div class="warn-strip">Targets FY26–27 = fase de baseline e governança. Reporte inicia FY28 com DQT score mínimo 2. Score 3 exige peer review confirmado.</div>
+  <div class="src">PRODES/INPE · MapBiomas Col. 10.1 · Dinamica EGO BAU 2030 · TNC Hub 2030 Goals</div>
 </div>
 
-<!-- ═══ TAB 4 ═══ -->
+<!-- TAB 4 -->
 <div id="pnl-asm" class="full-pnl">
-  <div style="font-size:12px;color:#666;flex-shrink:0">
-    Cada premissa da Teoria da Mudança é uma hipótese institucional monitorada.
-    Status revisado anualmente e pré-registrado no OSF.
-  </div>
+  <div style="font-size:12px;color:#666;flex-shrink:0">Cada premissa é uma hipótese institucional monitorada. Status revisado anualmente e pré-registrado no OSF.</div>
   <div id="asm-cards"></div>
   <div class="card" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;flex-shrink:0">
     <span style="font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.4px;color:#666">Legenda</span>
-    <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:#555">
-      <span style="width:10px;height:10px;border-radius:50%;background:#dcfce7;border:1px solid #16a34a;flex-shrink:0"></span>Sustentada
-    </span>
-    <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:#555">
-      <span style="width:10px;height:10px;border-radius:50%;background:#fef3c7;border:1px solid #d97706;flex-shrink:0"></span>Inconclusiva
-    </span>
-    <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:#555">
-      <span style="width:10px;height:10px;border-radius:50%;background:#fee2e2;border:1px solid #dc2626;flex-shrink:0"></span>Desafiada
-    </span>
+    <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:#555"><span style="width:10px;height:10px;border-radius:50%;background:#dcfce7;border:1px solid #16a34a;flex-shrink:0"></span>Sustentada</span>
+    <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:#555"><span style="width:10px;height:10px;border-radius:50%;background:#fef3c7;border:1px solid #d97706;flex-shrink:0"></span>Inconclusiva</span>
+    <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:#555"><span style="width:10px;height:10px;border-radius:50%;background:#fee2e2;border:1px solid #dc2626;flex-shrink:0"></span>Desafiada</span>
   </div>
-  <div class="info-strip">
-    <strong>Perguntas pré-registradas no OSF:</strong>
-    Learning questions registradas em osf.io/tnc-para-publicareas antes do ciclo de dados FY26.
-    Resultados não podem ser selecionados retroativamente.
-  </div>
+  <div class="info-strip"><strong>Perguntas pré-registradas no OSF:</strong> registradas antes do ciclo FY26. Resultados não podem ser selecionados retroativamente.</div>
   <div class="src">MapBiomas Col. 10.1 · SIGEF/INCRA · Registros internos TNC · Análise documental UCs 2019–2024</div>
 </div>
 
-<!-- ═══ SCRIPTS ═══ -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-
-// ═══ DADOS ESTÁTICOS ══════════════════════════════════════
-
+// ══ DADOS ESTÁTICOS ══════════════════════════════════════════════════
 const TS = {
-  yr : [2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030],
-  obs: [180,205,179,224,399,456,459,426,350,280,null,null,null,null,null,null],
-  bau: [195,210,208,238,295,355,420,455,440,410,385,355,320,290,260,230],
-  tgt: [null,null,null,null,null,null,null,null,null,280,255,225,195,165,135,100]
+  yr :[2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030],
+  obs:[180,205,179,224,399,456,459,426,350,280,null,null,null,null,null,null],
+  bau:[195,210,208,238,295,355,420,455,440,410,385,355,320,290,260,230],
+  tgt:[null,null,null,null,null,null,null,null,null,280,255,225,195,165,135,100]
 };
-
 const PROB_META = {
-  1: {label:'Baixo',   range:'0–4%',   color:'#97C459', pref:'≤ P25'},
-  2: {label:'Médio',   range:'4–20%',  color:'#EF9F27', pref:'P25–P50'},
-  3: {label:'Alto',    range:'20–57%', color:'#D85A30', pref:'P50–P75'},
-  4: {label:'Crítico', range:'57–100%',color:'#A32D2D', pref:'> P75'}
+  1:{label:'Baixo',  range:'0–4%',   color:'#97C459', pref:'≤ P25'},
+  2:{label:'Médio',  range:'4–20%',  color:'#EF9F27', pref:'P25–P50'},
+  3:{label:'Alto',   range:'20–57%', color:'#D85A30', pref:'P50–P75'},
+  4:{label:'Crítico',range:'57–100%',color:'#A32D2D', pref:'> P75'}
 };
-
 const ASMP = [
-  { s:'s',
-    t:'Territórios geridos por comunidades mantêm baixas taxas de desmatamento independentemente do crescimento econômico',
-    e:'MapBiomas Col. 10: TIs no Pará apresentam taxa 5,3× menor que ANDs comparáveis. Consistente 2015–2024 (N=47 territórios).',
-    r:'Q2 2027' },
-  { s:'i',
-    t:'Territórios com atividades econômicas legais são menos suscetíveis ao desmatamento e degradação',
-    e:'Evidência mista: PGTUs e acordos de pesca mostram resultados positivos locais; escala insuficiente para conclusão estatística (N=6).',
-    r:'Q2 2027' },
-  { s:'i',
-    t:'Manejo florestal sustentável, restauração em larga escala e atividades comunitárias são técnica e financeiramente viáveis',
-    e:'Concessão de restauração Altamira 2025 (10.000 ha) demonstra viabilidade técnica. Modelo de crédito de carbono em validação.',
-    r:'Q2 2027' },
-  { s:'c',
-    t:'Há interesse político e financiamento público disponível para criação de novas Unidades de Conservação na Amazônia brasileira',
-    e:'Pará 2019–2023: 2 novas UCs criadas (vs. média histórica ~8/5 anos). Restrições orçamentárias MMA persistentes.',
-    r:'Triggered: pós ciclo eleitoral 2026' }
+  {s:'s', t:'Territórios geridos por comunidades mantêm baixas taxas de desmatamento independentemente do crescimento econômico',
+   e:'MapBiomas Col. 10: TIs no Pará com taxa 5,3× menor que ANDs comparáveis. Consistente 2015–2024 (N=47).', r:'Q2 2027'},
+  {s:'i', t:'Territórios com atividades econômicas legais são menos suscetíveis ao desmatamento',
+   e:'Evidência mista: PGTUs e acordos de pesca mostram resultados locais. Escala insuficiente para conclusão (N=6).', r:'Q2 2027'},
+  {s:'i', t:'Manejo florestal sustentável e restauração em larga escala são viáveis financeiramente',
+   e:'Concessão de restauração Altamira 2025 (10.000 ha) demonstra viabilidade técnica. Crédito de carbono em validação.', r:'Q2 2027'},
+  {s:'c', t:'Há interesse político e financiamento público para criação de novas UCs na Amazônia',
+   e:'Pará 2019–2023: 2 novas UCs (vs. média histórica ~8/5 anos). Restrições orçamentárias MMA persistentes.', r:'Triggered: pós 2026'}
 ];
 
-// ═══ UTILITÁRIOS ══════════════════════════════════════════
-
+// ══ CACHE E ESTADO ═══════════════════════════════════════════════════
 const lyrCache = {};
+const maps = {}, inited = {};
+// Município state
+let munLayerCtx = null, selectedMunLayer = null;
+let munAlertStats = {};   // NM_MUN → {n, area}
 
 async function fetchGeoJSON(name) {
   if (lyrCache[name]) return lyrCache[name];
-  const r = await fetch(`./data/${name}`);
-  const d = await r.json();
+  const d = await (await fetch(`./data/${name}`)).json();
   lyrCache[name] = d;
   return d;
 }
-
 function popup(props, fields) {
-  return fields
-    .map(([k,l]) => props[k] != null
-      ? `<span style="color:#888;font-size:11px">${l}:</span> <b>${props[k]}</b>`
-      : null)
-    .filter(Boolean).join('<br>');
+  return fields.map(([k,l]) => props[k]!=null
+    ? `<span style="color:#888;font-size:11px">${l}:</span> <b>${props[k]}</b>`
+    : null).filter(Boolean).join('<br>');
 }
-
-// Controla visibilidade de camada por zoom mínimo
 function zoomLayer(map, layer, minZoom, hintId) {
-  function update() {
+  function upd() {
     const z = map.getZoom();
-    if (z >= minZoom  && !map.hasLayer(layer)) map.addLayer(layer);
-    if (z <  minZoom  &&  map.hasLayer(layer)) map.removeLayer(layer);
+    if (z>=minZoom && !map.hasLayer(layer)) map.addLayer(layer);
+    if (z<minZoom  &&  map.hasLayer(layer)) map.removeLayer(layer);
     if (hintId) {
       const h = document.getElementById(hintId);
-      if (h) h.style.opacity = z >= minZoom ? '0' : '1';
+      if (h) h.style.opacity = z>=minZoom ? '0' : '1';
     }
   }
-  map.on('zoomend', update);
-  update();
+  map.on('zoomend', upd); upd();
 }
-
 function tiles() {
-  return L.tileLayer(
-    'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-    { attribution: '&copy; OSM contributors &copy; CARTO', maxZoom: 19 }
-  );
+  return L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+    {attribution:'&copy; OSM &copy; CARTO', maxZoom:19});
 }
-
-// ═══ ESTADO ═══════════════════════════════════════════════
-
-const maps  = {};
-const inited = {};
-
 function sw(id) {
-  document.querySelectorAll('.pnl, .full-pnl').forEach(p => p.classList.remove('on'));
-  document.querySelectorAll('.tab').forEach(b => b.classList.remove('on'));
-  document.getElementById('pnl-' + id).classList.add('on');
-  document.querySelector('[data-p="' + id + '"]').classList.add('on');
-  if (!inited[id]) { initTab(id); inited[id] = true; }
-  else if (maps[id]) setTimeout(() => maps[id].invalidateSize(), 80);
+  document.querySelectorAll('.pnl,.full-pnl').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
+  document.getElementById('pnl-'+id).classList.add('on');
+  document.querySelector('[data-p="'+id+'"]').classList.add('on');
+  if (!inited[id]) { initTab(id); inited[id]=true; }
+  else if (maps[id]) setTimeout(()=>maps[id].invalidateSize(), 80);
 }
-
 async function initTab(id) {
-  if (id === 'ctx') await initCtx();
-  if (id === 'pri') await initPri();
-  if (id === 'mon') initMon();
-  if (id === 'asm') initAsm();
+  if (id==='ctx') await initCtx();
+  if (id==='pri') await initPri();
+  if (id==='mon') initMon();
+  if (id==='asm') initAsm();
 }
 
-// ═══ TAB 1 — CONTEXTO TERRITORIAL ════════════════════════
+// ══ MUNICÍPIO — SEARCH ═══════════════════════════════════════════════
+function initMunSearch(map, munData) {
+  const input  = document.getElementById('mun-input');
+  const drop   = document.getElementById('mun-drop');
+  if (!input) return;
 
+  const names = munData.features
+    .map(f => f.properties.NM_MUN)
+    .filter(Boolean).sort();
+
+  // autocomplete
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toUpperCase();
+    drop.innerHTML = '';
+    if (q.length < 2) { drop.style.display='none'; return; }
+    const matches = names.filter(n => n.includes(q)).slice(0, 8);
+    if (!matches.length) { drop.style.display='none'; return; }
+    matches.forEach(n => {
+      const div = document.createElement('div');
+      div.className = 'mun-item';
+      div.textContent = n.charAt(0) + n.slice(1).toLowerCase();
+      div.addEventListener('click', () => {
+        input.value = div.textContent;
+        drop.style.display = 'none';
+        selectMun(n, map);
+      });
+      drop.appendChild(div);
+    });
+    drop.style.display = 'block';
+  });
+
+  // close dropdown on outside click
+  document.addEventListener('click', e => {
+    if (!input.contains(e.target)) drop.style.display = 'none';
+  });
+}
+
+function selectMun(nmMun, map) {
+  if (!munLayerCtx) return;
+
+  // reset previous highlight
+  if (selectedMunLayer) {
+    munLayerCtx.resetStyle(selectedMunLayer);
+    selectedMunLayer = null;
+  }
+
+  munLayerCtx.eachLayer(layer => {
+    if (layer.feature.properties.NM_MUN === nmMun) {
+      layer.setStyle({
+        fillColor  : '#97C459',
+        fillOpacity: 0.35,
+        color      : '#1B4332',
+        weight     : 2
+      });
+      selectedMunLayer = layer;
+      map.fitBounds(layer.getBounds(), {padding:[40,40], maxZoom:10});
+
+      // show info
+      const props = layer.feature.properties;
+      const stats = munAlertStats[nmMun] || {n:0, area:0};
+      const nome  = nmMun.charAt(0) + nmMun.slice(1).toLowerCase();
+      document.getElementById('mi-name').textContent  = nome;
+      document.getElementById('mi-area').textContent  =
+        props.area_km2 ? `${Number(props.area_km2).toLocaleString('pt-BR')} km²` : '—';
+      document.getElementById('mi-n').textContent     =
+        stats.n ? stats.n.toLocaleString('pt-BR') : '0';
+      document.getElementById('mi-defor').textContent =
+        stats.area ? `${Math.round(stats.area).toLocaleString('pt-BR')} ha` : '0 ha';
+      document.getElementById('mun-info').style.display = 'block';
+    }
+  });
+}
+
+function clearMun() {
+  if (selectedMunLayer && munLayerCtx) {
+    munLayerCtx.resetStyle(selectedMunLayer);
+    selectedMunLayer = null;
+  }
+  document.getElementById('mun-input').value = '';
+  document.getElementById('mun-info').style.display = 'none';
+}
+
+// ══ TAB 1 — CONTEXTO ═════════════════════════════════════════════════
 async function initCtx() {
-  const m = L.map('map-ctx', { zoomControl: true }).setView([-4.5, -52], 5);
-  maps['ctx'] = m;
-  tiles().addTo(m);
+  const m = L.map('map-ctx',{zoomControl:true}).setView([-4.5,-52],5);
+  maps['ctx'] = m; tiles().addTo(m);
   const overlays = {};
 
   // AND areas
   try {
     const d = await fetchGeoJSON('para_undesignated_areas.geojson');
-    const ly = L.geoJSON(d, {
-      style: { color:'#E07B39', fillColor:'#E07B39', fillOpacity:.22, weight:.8, stroke:true },
-      onEachFeature: (f, l) => l.bindPopup(popup(f.properties, [
-        ['nome_ut','Nome'], ['ClasseUnic','Classe'], ['AND_','AND']
-      ]))
+    const ly = L.geoJSON(d,{
+      style:{color:'#E07B39',fillColor:'#E07B39',fillOpacity:.22,weight:.8},
+      onEachFeature:(f,l)=>l.bindPopup(popup(f.properties,[
+        ['nome_ut','Nome'],['ClasseUnic','Classe']]))
     }).addTo(m);
     overlays['Áreas não-destinadas (AND)'] = ly;
-  } catch(e) { console.warn('AND', e); }
+  } catch(e){console.warn('AND',e);}
+
+  // Municípios do Pará
+  try {
+    const d = await fetchGeoJSON('municipios_para.geojson');
+
+    // Pré-calcular estatísticas de alertas por município
+    // (será preenchido quando alertas_pontos carregar)
+    munLayerCtx = L.geoJSON(d, {
+      style:{
+        color      : '#444444',
+        fillColor  : 'transparent',
+        fillOpacity: 0,
+        weight     : 0.5
+      },
+      onEachFeature:(f,l) => {
+        const nm = f.properties.NM_MUN || '';
+        l.bindTooltip(
+          nm.charAt(0) + nm.slice(1).toLowerCase(),
+          {permanent:false, direction:'center', className:'leaflet-tooltip-mun'}
+        );
+        l.on('click', () => {
+          document.getElementById('mun-input').value =
+            nm.charAt(0) + nm.slice(1).toLowerCase();
+          selectMun(nm, m);
+        });
+      }
+    }).addTo(m);
+    overlays['Municípios do Pará'] = munLayerCtx;
+    initMunSearch(m, d);
+  } catch(e){console.warn('Municípios',e);}
 
   // MapBiomas — sem bordas
   try {
     const d = await fetchGeoJSON('mapbiomas_undesignated_landuse.geojson');
-    const ly = L.geoJSON(d, {
-      style: f => ({
-        fillColor  : f.properties.color || '#999',
-        fillOpacity: 0.65,
-        stroke     : false   // sem borda
-      }),
-      onEachFeature: (f, l) => l.bindPopup(popup(f.properties, [
-        ['class_name','Classe'], ['class_group','Grupo'], ['gridcode','Código MapBiomas']
-      ]))
+    const ly = L.geoJSON(d,{
+      style:f=>({fillColor:f.properties.color||'#999',fillOpacity:.65,stroke:false}),
+      onEachFeature:(f,l)=>l.bindPopup(popup(f.properties,[
+        ['class_name','Classe'],['class_group','Grupo']]))
     });
     overlays['Cobertura MapBiomas 2024'] = ly;
     buildMapbiomasChart(d.features);
-  } catch(e) { console.warn('MapBiomas', e); }
+  } catch(e){console.warn('MapBiomas',e);}
 
-  // CAR — só contorno, zoom ≥ 10
+  // CAR — zoom ≥ 10
   try {
     const d = await fetchGeoJSON('car_undesignated_overlap.geojson');
-    const ly = L.geoJSON(d, {
-      style: {
-        color      : '#F9A825',
-        weight     : 0.8,
-        fillColor  : 'transparent',
-        fillOpacity: 0,
-        stroke     : true
-      },
-      onEachFeature: (f, l) => l.bindPopup(popup(f.properties, [
-        ['cod_imovel','Imóvel'], ['municipio','Município'], ['num_area','Área (ha)']
-      ]))
+    const ly = L.geoJSON(d,{
+      style:{color:'#F9A825',fillColor:'transparent',weight:.8,stroke:true},
+      onEachFeature:(f,l)=>l.bindPopup(popup(f.properties,[
+        ['cod_imovel','Imóvel'],['municipio','Município'],['num_area','Área (ha)']]))
     });
-    zoomLayer(m, ly, 10, 'hint-ctx');
+    zoomLayer(m,ly,10,'hint-ctx');
     overlays['Imóveis CAR médios/grandes (zoom ≥ 10)'] = ly;
-  } catch(e) { console.warn('CAR', e); }
+  } catch(e){console.warn('CAR',e);}
 
-  // Reservas Legais — sem bordas, zoom ≥ 10
+  // Reservas Legais — zoom ≥ 10, sem bordas
   try {
     const d = await fetchGeoJSON('legal_reserve_undesignated.geojson');
-    const ly = L.geoJSON(d, {
-      style: {
-        fillColor  : '#2E7D32',
-        fillOpacity: 0.45,
-        stroke     : false   // sem borda
-      },
-      onEachFeature: (f, l) => l.bindPopup(popup(f.properties, [
-        ['cod_imovel','Imóvel'], ['num_area','Área (ha)']
-      ]))
+    const ly = L.geoJSON(d,{
+      style:{fillColor:'#2E7D32',fillOpacity:.45,stroke:false},
+      onEachFeature:(f,l)=>l.bindPopup(popup(f.properties,[
+        ['cod_imovel','Imóvel'],['num_area','Área (ha)']]))
     });
-    zoomLayer(m, ly, 10, 'hint-ctx');
+    zoomLayer(m,ly,10,'hint-ctx');
     overlays['Reservas Legais declaradas (zoom ≥ 10)'] = ly;
-  } catch(e) { console.warn('RL', e); }
+  } catch(e){console.warn('RL',e);}
 
-  // Alertas heatmap
+  // ── Alertas heatmap com normalização log ─────────────────────────
   try {
-    const d = await fetch('./data/alertas_heat_data.json').then(r => r.json());
-    const hl = L.heatLayer(d, {
-      radius: 22, blur: 18, maxZoom: 12,
-      gradient: { 0.2:'#ffeda0', 0.5:'#feb24c', 0.8:'#f03b20', 1.0:'#bd0026' }
+    const hd = await fetch('./data/alertas_heat_data.json').then(r=>r.json());
+    const hl = L.heatLayer(hd, {
+      radius    : 20,
+      blur      : 20,
+      max       : 0.8,        // ← abaixado de 1.0: amplifica cores intermediárias
+      minOpacity: 0.25,
+      gradient  : {
+        0.0 : '#ffffb2',      // amarelo claro — alertas pequenos
+        0.35: '#fecc5c',      // laranja claro
+        0.55: '#fd8d3c',      // laranja médio
+        0.75: '#f03b20',      // vermelho
+        1.0 : '#bd0026'       // vermelho escuro — grandes / clusters
+      }
     }).addTo(m);
-    overlays['Alertas desmatamento — heatmap'] = hl;
-    // Trocar para pontos ao dar zoom
-    fetchGeoJSON('alertas_pontos.geojson').then(dp => {
-      const pl = L.geoJSON(dp, {
-        pointToLayer: (f, ll) => L.circleMarker(ll, {
-          radius     : Math.max(3, Math.min(16, Math.sqrt(f.properties.area_ha || 1) * 0.55)),
+    overlays['Alertas — heatmap (intensidade log)'] = hl;
+    buildAlertaStats(hd.length);
+
+    // Calcular stats por município a partir dos pontos
+    fetchGeoJSON('alertas_pontos.geojson').then(ap => {
+      ap.features.forEach(f => {
+        const mun = (f.properties.municipio || '').toUpperCase().trim();
+        if (!mun) return;
+        if (!munAlertStats[mun]) munAlertStats[mun] = {n:0, area:0};
+        munAlertStats[mun].n++;
+        munAlertStats[mun].area += f.properties.area_ha || 0;
+      });
+
+      // pontos ao zoom ≥ 11
+      const pl = L.geoJSON(ap, {
+        pointToLayer:(f,ll) => L.circleMarker(ll, {
+          radius     : Math.max(3, Math.min(16, Math.sqrt(f.properties.area_ha||1)*0.55)),
           fillColor  : '#bd0026',
           color      : '#fff',
           weight     : 0.5,
           fillOpacity: 0.65
         }),
-        onEachFeature: (f, l) => l.bindPopup(popup(f.properties, [
-          ['municipio','Município'], ['area_ha','Área (ha)'], ['ano','Ano']
-        ]))
+        onEachFeature:(f,l)=>l.bindPopup(popup(f.properties,[
+          ['municipio','Município'],['area_ha','Área (ha)'],['ano','Ano']]))
       });
       m.on('zoomend', () => {
         const z = m.getZoom();
-        if (z >= 11 && !m.hasLayer(pl))  { if (m.hasLayer(hl)) m.removeLayer(hl); m.addLayer(pl); }
-        if (z <  11 &&  m.hasLayer(pl))  { m.removeLayer(pl); m.addLayer(hl); }
+        if (z>=11 && !m.hasLayer(pl))  { if (m.hasLayer(hl)) m.removeLayer(hl); m.addLayer(pl); }
+        if (z<11  &&  m.hasLayer(pl))  { m.removeLayer(pl); m.addLayer(hl); }
       });
       overlays['Alertas — pontos individuais (zoom ≥ 11)'] = pl;
-    }).catch(() => {});
-    buildAlertaStats(d.length);
-  } catch(e) { console.warn('heat', e); }
+    }).catch(()=>{});
 
-  L.control.layers(null, overlays, { collapsed: true, position: 'topright' }).addTo(m);
+  } catch(e){console.warn('heat',e);}
+
+  L.control.layers(null,overlays,{collapsed:true,position:'topright'}).addTo(m);
+  const h = document.getElementById('hint-ctx');
+  if (h) h.style.opacity = '1';
 }
 
-// ═══ TAB 2 — PRIORIDADE ESPACIAL ═════════════════════════
-
+// ══ TAB 2 — PRIORIDADE ═══════════════════════════════════════════════
 async function initPri() {
-  const m = L.map('map-pri', { zoomControl: true }).setView([-4.5, -52], 5);
-  maps['pri'] = m;
-  tiles().addTo(m);
+  const m = L.map('map-pri',{zoomControl:true}).setView([-4.5,-52],5);
+  maps['pri'] = m; tiles().addTo(m);
   const overlays = {};
 
-  // AND contorno
   try {
     const d = await fetchGeoJSON('para_undesignated_areas.geojson');
-    const ly = L.geoJSON(d, {
-      style: { color:'#E07B39', fillColor:'transparent', weight:1, dashArray:'4 3' }
-    }).addTo(m);
-    overlays['AND — contorno de referência'] = ly;
-  } catch(e) {}
+    const ly = L.geoJSON(d,{style:{color:'#E07B39',fillColor:'transparent',weight:1.2,dashArray:'4 3'}}).addTo(m);
+    overlays['AND — contorno'] = ly;
+  } catch(e){}
 
-  // Q4 — alta resiliência, sem bordas
   try {
     const d = await fetchGeoJSON('resilience_q4.geojson');
-    const ly = L.geoJSON(d, {
-      style: f => ({
-        fillColor  : f.properties.q_color || '#40916C',
-        fillOpacity: 0.45,
-        stroke     : false   // sem borda
-      }),
-      onEachFeature: (f, l) => l.bindPopup(popup(f.properties, [
-        ['q_label','Quadrante'], ['class_label','Classe'], ['q_descr','Descrição']
-      ]))
+    const ly = L.geoJSON(d,{
+      style:f=>({fillColor:f.properties.q_color||'#40916C',fillOpacity:.45,stroke:false}),
+      onEachFeature:(f,l)=>l.bindPopup(popup(f.properties,[
+        ['q_label','Quadrante'],['class_label','Classe'],['q_descr','Descrição']]))
     }).addTo(m);
     overlays['Q4 — Alta resiliência climática'] = ly;
-  } catch(e) { console.warn('Q4', e); }
+  } catch(e){console.warn('Q4',e);}
 
-  // Q1 — baixa resiliência, sem bordas
   try {
     const d = await fetchGeoJSON('resilience_q1.geojson');
-    const ly = L.geoJSON(d, {
-      style: f => ({
-        fillColor  : f.properties.q_color || '#AAAAAA',
-        fillOpacity: 0.35,
-        stroke     : false   // sem borda
-      }),
-      onEachFeature: (f, l) => l.bindPopup(popup(f.properties, [
-        ['q_label','Quadrante'], ['class_label','Classe'], ['q_descr','Descrição']
-      ]))
+    const ly = L.geoJSON(d,{
+      style:f=>({fillColor:f.properties.q_color||'#AAAAAA',fillOpacity:.35,stroke:false}),
+      onEachFeature:(f,l)=>l.bindPopup(popup(f.properties,[
+        ['q_label','Quadrante'],['class_label','Classe'],['q_descr','Descrição']]))
     }).addTo(m);
     overlays['Q1 — Baixa resiliência climática'] = ly;
-  } catch(e) { console.warn('Q1', e); }
+  } catch(e){console.warn('Q1',e);}
 
-  // Probabilidade desmatamento — sem bordas
   try {
     const d = await fetchGeoJSON('deforestation_probability.geojson');
-    const ly = L.geoJSON(d, {
-      style: f => ({
-        fillColor  : f.properties.color || '#ccc',
-        fillOpacity: 0.50,
-        stroke     : false   // sem borda
-      }),
-      onEachFeature: (f, l) => l.bindPopup(popup(f.properties, [
-        ['label','Classe'], ['prob_range','Faixa de probabilidade'], ['p_ref','Referência percentil']
-      ]))
+    const ly = L.geoJSON(d,{
+      style:f=>({fillColor:f.properties.color||'#ccc',fillOpacity:.50,stroke:false}),
+      onEachFeature:(f,l)=>l.bindPopup(popup(f.properties,[
+        ['label','Classe'],['prob_range','Faixa'],['p_ref','Percentil']]))
     }).addTo(m);
     overlays['Probabilidade BAU 2030 (Dinamica EGO)'] = ly;
     buildProbLegend(d.features);
-  } catch(e) { console.warn('prob', e); }
+  } catch(e){console.warn('prob',e);}
 
-  // Alertas hexgrid — sem bordas internas visíveis
   try {
     const d = await fetchGeoJSON('alertas_hexgrid.geojson');
-    const ly = L.geoJSON(d, {
-      style: f => ({
-        fillColor  : f.properties.color || '#feb24c',
-        fillOpacity: 0.55,
-        color      : '#fff',
-        weight     : 0.4
-      }),
-      onEachFeature: (f, l) => l.bindPopup(popup(f.properties, [
-        ['n_alertas','Nº alertas'], ['area_total','Área total (ha)'], ['ano_recente','Ano mais recente']
-      ]))
+    const ly = L.geoJSON(d,{
+      style:f=>({fillColor:f.properties.color||'#feb24c',fillOpacity:.55,color:'#fff',weight:.4}),
+      onEachFeature:(f,l)=>l.bindPopup(popup(f.properties,[
+        ['n_alertas','Nº alertas'],['area_total','Área total (ha)'],['ano_recente','Ano recente']]))
     }).addTo(m);
-    overlays['Alertas — densidade hexgrid (25 km)'] = ly;
-  } catch(e) { console.warn('hexgrid', e); }
+    overlays['Alertas — hexgrid (25 km)'] = ly;
+  } catch(e){console.warn('hexgrid',e);}
 
-  L.control.layers(null, overlays, { collapsed: true, position: 'topright' }).addTo(m);
+  L.control.layers(null,overlays,{collapsed:true,position:'topright'}).addTo(m);
 }
 
-// ═══ TAB 3 — MONITORAMENTO ════════════════════════════════
-
+// ══ TAB 3 — MONITORAMENTO ════════════════════════════════════════════
 function initMon() {
-  // Série temporal
-  new Chart(document.getElementById('ch-ts'), {
-    type: 'line',
-    data: { labels: TS.yr, datasets: [
-      { label:'Observado (PRODES/MapBiomas)', data:TS.obs,
-        borderColor:'#C0392B', backgroundColor:'rgba(192,57,43,.06)',
-        borderWidth:2.5, pointRadius:3, tension:.3, spanGaps:false },
-      { label:'Cenário BAU (Dinamica EGO)', data:TS.bau,
-        borderColor:'#9E9E9E', borderDash:[6,4],
-        borderWidth:2, pointRadius:2, tension:.3, fill:false },
-      { label:'Trajetória alvo (TNC)', data:TS.tgt,
-        borderColor:'#40916C', borderWidth:2.5,
-        pointRadius:3, tension:.3, spanGaps:false }
+  new Chart(document.getElementById('ch-ts'),{
+    type:'line',
+    data:{labels:TS.yr,datasets:[
+      {label:'Observado (PRODES/MapBiomas)',data:TS.obs,borderColor:'#C0392B',backgroundColor:'rgba(192,57,43,.06)',borderWidth:2.5,pointRadius:3,tension:.3,spanGaps:false},
+      {label:'Cenário BAU (Dinamica EGO)',data:TS.bau,borderColor:'#9E9E9E',borderDash:[6,4],borderWidth:2,pointRadius:2,tension:.3,fill:false},
+      {label:'Trajetória alvo (TNC)',data:TS.tgt,borderColor:'#40916C',borderWidth:2.5,pointRadius:3,tension:.3,spanGaps:false}
     ]},
-    options: { responsive:true, maintainAspectRatio:false,
-      plugins: {
-        legend: { labels:{ font:{size:11}, usePointStyle:true } },
-        tooltip: { callbacks: { label: c => c.raw != null
-          ? ` ${c.dataset.label}: ${c.raw} mil ha` : null } }
-      },
-      scales: {
-        x: { ticks:{ font:{size:10} }, grid:{ display:false } },
-        y: { ticks:{ font:{size:10}, callback: v => `${v}k` },
-             title:{ display:true, text:'mil ha/ano', font:{size:10} },
-             grid:{ color:'rgba(0,0,0,.05)' } }
-      }
-    }
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{font:{size:11},usePointStyle:true}},
+               tooltip:{callbacks:{label:c=>c.raw!=null?` ${c.dataset.label}: ${c.raw} mil ha`:null}}},
+      scales:{x:{ticks:{font:{size:10}},grid:{display:false}},
+              y:{ticks:{font:{size:10},callback:v=>`${v}k`},title:{display:true,text:'mil ha/ano',font:{size:10}},grid:{color:'rgba(0,0,0,.05)'}}}}
   });
-
-  // Alertas por ano — lidos dos dados reais
-  fetchGeoJSON('alertas_pontos.geojson').then(d => {
-    const byYear = {};
-    d.features.forEach(f => {
-      const a = f.properties.ano;
-      if (a) byYear[a] = (byYear[a] || 0) + (f.properties.area_ha || 0);
+  fetchGeoJSON('alertas_pontos.geojson').then(d=>{
+    const by={};
+    d.features.forEach(f=>{const a=f.properties.ano; if(a) by[a]=(by[a]||0)+(f.properties.area_ha||0);});
+    const anos=Object.keys(by).sort();
+    new Chart(document.getElementById('ch-alertas'),{
+      type:'bar',
+      data:{labels:anos,datasets:[{label:'Área (ha)',data:anos.map(a=>Math.round(by[a])),
+        backgroundColor:anos.map(a=>parseInt(a)>=2022?'#C0392B':'#E07B39'),borderRadius:3}]},
+      options:{responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.raw.toLocaleString('pt-BR')} ha`}}},
+        scales:{x:{ticks:{font:{size:10}},grid:{display:false}},y:{ticks:{font:{size:10}},grid:{color:'rgba(0,0,0,.05)'}}}}
     });
-    const anos = Object.keys(byYear).sort();
-    new Chart(document.getElementById('ch-alertas'), {
-      type: 'bar',
-      data: { labels: anos, datasets: [{
-        label: 'Área desmatada (ha)',
-        data : anos.map(a => Math.round(byYear[a])),
-        backgroundColor: anos.map(a => parseInt(a) >= 2022 ? '#C0392B' : '#E07B39'),
-        borderRadius: 3
-      }]},
-      options: { responsive:true, maintainAspectRatio:false,
-        plugins: {
-          legend: { display:false },
-          tooltip: { callbacks: { label: c => `${c.raw.toLocaleString('pt-BR')} ha` } }
-        },
-        scales: {
-          x: { ticks:{ font:{size:10} }, grid:{ display:false } },
-          y: { ticks:{ font:{size:10} }, grid:{ color:'rgba(0,0,0,.05)' } }
-        }
-      }
-    });
-  }).catch(() => {});
+  }).catch(()=>{});
 }
 
-// ═══ TAB 4 — PREMISSAS ════════════════════════════════════
-
+// ══ TAB 4 — PREMISSAS ════════════════════════════════════════════════
 function initAsm() {
-  const icons = { s:'✓', i:'~', c:'!' };
-  const labs  = { s:'Sustentada', i:'Inconclusiva', c:'Desafiada' };
-  document.getElementById('asm-cards').innerHTML = ASMP.map(a => `
+  const icons={s:'✓',i:'~',c:'!'}, labs={s:'Sustentada',i:'Inconclusiva',c:'Desafiada'};
+  document.getElementById('asm-cards').innerHTML = ASMP.map(a=>`
     <div class="acard" style="margin-bottom:8px">
       <div class="aicon ${a.s}">${icons[a.s]}</div>
       <div class="abody">
-        <div class="t">${a.t}</div>
-        <div class="e">${a.e}</div>
-        <div class="m">
-          <span class="badge ${a.s}">${labs[a.s]}</span>
-          <span class="rev">Revisão: ${a.r}</span>
-        </div>
+        <div class="t">${a.t}</div><div class="e">${a.e}</div>
+        <div class="m"><span class="badge ${a.s}">${labs[a.s]}</span><span class="rev">Revisão: ${a.r}</span></div>
       </div>
     </div>`).join('');
 }
 
-// ═══ HELPERS ══════════════════════════════════════════════
-
+// ══ HELPERS ══════════════════════════════════════════════════════════
 function buildMapbiomasChart(features) {
-  const top = features
-    .map(f => ({
-      label: f.properties.class_name || `Classe ${f.properties.gridcode}`,
-      color: f.properties.color || '#999'
-    }))
-    .slice(0, 12);
-  new Chart(document.getElementById('ch-mapbiomas'), {
-    type: 'doughnut',
-    data: {
-      labels  : top.map(t => t.label),
-      datasets: [{ data: top.map(() => 1), backgroundColor: top.map(t => t.color),
-                   borderWidth:1, borderColor:'#fff' }]
-    },
-    options: { responsive:true, maintainAspectRatio:false, cutout:'50%',
-      plugins: {
-        legend: { position:'right', labels:{ font:{size:9}, padding:4, boxWidth:8 } },
-        tooltip: { callbacks: { label: c => ` ${c.label}` } }
-      }
-    }
+  const top = features.map(f=>({label:f.properties.class_name||`Cl.${f.properties.gridcode}`,color:f.properties.color||'#999'})).slice(0,12);
+  new Chart(document.getElementById('ch-mapbiomas'),{
+    type:'doughnut',
+    data:{labels:top.map(t=>t.label),datasets:[{data:top.map(()=>1),backgroundColor:top.map(t=>t.color),borderWidth:1,borderColor:'#fff'}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'50%',
+      plugins:{legend:{position:'right',labels:{font:{size:9},padding:4,boxWidth:8}},tooltip:{callbacks:{label:c=>` ${c.label}`}}}}
   });
 }
-
 function buildAlertaStats(n) {
   const el = document.getElementById('alerta-stats');
-  if (el) el.innerHTML =
-    `<b>${n.toLocaleString('pt-BR')}</b> alertas processados<br>
-     <span style="font-size:10px;color:#888">≥ 1 ha · 2017–2024 · dados reais MapBiomas Alerta</span>`;
+  if (el) el.innerHTML = `<b>${n.toLocaleString('pt-BR')}</b> alertas · <span style="font-size:10px;color:#888">intensidade log-normalizada — discrimina áreas de diferente pressão</span>`;
 }
-
 function buildProbLegend(features) {
   const el = document.getElementById('prob-legend');
   if (!el) return;
-  [...features]
-    .sort((a, b) => (a.properties.gridcode || 0) - (b.properties.gridcode || 0))
-    .forEach(f => {
-      const p    = f.properties;
-      const meta = PROB_META[p.gridcode] || { label: p.label || '?', range: p.prob_range || '', color: p.color || '#ccc', pref: '' };
-      el.innerHTML += `
-        <div class="leg-item">
-          <div class="leg-sq" style="background:${meta.color}"></div>
-          <span><b>${meta.label}</b> — ${meta.range}
-            <span style="color:#888;font-size:10px">(${meta.pref})</span>
-          </span>
-        </div>`;
-    });
+  [...features].sort((a,b)=>(a.properties.gridcode||0)-(b.properties.gridcode||0)).forEach(f=>{
+    const p=f.properties, meta=PROB_META[p.gridcode]||{label:p.label||'?',range:p.prob_range||'',color:p.color||'#ccc',pref:''};
+    el.innerHTML+=`<div class="leg-item"><div class="leg-sq" style="background:${meta.color}"></div>
+      <span><b>${meta.label}</b> — ${meta.range} <span style="color:#888;font-size:10px">(${meta.pref})</span></span></div>`;
+  });
 }
 
-// ═══ BOOT ═════════════════════════════════════════════════
-
-initTab('ctx');
-inited['ctx'] = true;
+// ══ BOOT ═════════════════════════════════════════════════════════════
+initTab('ctx'); inited['ctx']=true;
 </script>
 </body>
 </html>
